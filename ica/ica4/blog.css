@@ -1,0 +1,67 @@
+/* styles.css */
+body {
+    background-color: #fff;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1em;
+    margin: 0;
+  }
+  
+  h1 {
+    color: #d63384; /* Pink color for the name */
+    font-size: 2em;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: bold;
+  }
+  
+  h1::after {
+    content: " ";
+    display: block;
+    margin-top: 5px;
+    border-bottom: 5px dotted #6a0572; /* Purple dotted line */
+    width: 100%;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+    font-style: italic;
+  }
+  
+  .job-title {
+    color: #999999;
+    font-weight: bold;
+  }
+  
+  p {
+    line-height: 1.5;
+  }
+  
+  a:link,
+  a:visited {
+    color: #fb6542; /* Orange link */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    margin: 5px 0;
+  }
+  
+  ul li a {
+    font-weight: bold;
+  }
+  
+  .contact-info {
+    border: 3px solid #6a0572; /* Purple border */
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
