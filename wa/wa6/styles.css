@@ -46,7 +46,7 @@ nav a {
   padding: 0.5em 1em;
 }
 
-/* Main Content Layout */
+/* Main Content*/
 main {
   display: flex;
   flex-wrap: wrap;
@@ -61,7 +61,7 @@ aside {
   flex: 1;
 }
 
-/* Floating Image in Article */
+
 /* Imbeds img in article */
 article img {
   float: left;
@@ -69,7 +69,7 @@ article img {
   width: 200px;
 }
 
-/* Photography Grid */
+/* Grid */
 .photos {
   list-style: none;
   margin: 0;
@@ -84,3 +84,12 @@ article img {
   width: 100%;
 }
  
+
+@media (max-width: 500px) {
+  main {
+    flex-direction: column;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+}
