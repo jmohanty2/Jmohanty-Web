@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: white; /* Adjust if needed */
+    text-shadow: 0 0 5px #00f, 0 0 10px #00f, 0 0 15px #00f;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(270deg, purple, cyan, blue);
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease infinite;
+    overflow: hidden; /* Prevents scrollbars from appearing */
+    position: relative;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: white;
+    text-shadow: 0 0 5px #00f, 0 0 10px #00f, 0 0 15px #00f;
+    position: relative;
+    z-index: 10; /* Keeps the text above the balls */
+}
+
+nav {
+    font-family: 'Pacifico', cursive;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 5px #00f, 0 0 10px #00f, 0 0 15px #00f;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(0, 234, 255);
+    width: 100%;
+    position: relative;
+    z-index: 10; 
+}
+
+nav a {
+    width: 10vw;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+img {
+    width: 70vw;
+    height: 70vh;
+    position: relative;
+    z-index: 10; 
+}
+
+.ball {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    z-index: 1;
+    opacity: 0.8;
+    transition: width 2s, height 2s, background-color 2s; /* Smooth transition */
+    animation: fall 5s infinite linear, colorChange 4s infinite alternate;
+}
+
+/* When hovered, balls grow in size and change color smoothly */
+.ball:hover {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+}
+
+@keyframes fall {
+    0% { top: -10vh; } 
+    100% { top: 110vh; } 
+}
+
+@keyframes colorChange {
+    0% { background-color: crimson; }
+    33% { background-color: purple; }
+    66% { background-color: cyan; }
+    100% { background-color: blue; }
+}
+
+/* Randomly position balls */
+#red-ball { left: 5vw; animation-delay: 0s; }
+#ball2 { left: 25vw; animation-delay: 1s; }
+#ball3 { left: 45vw; animation-delay: 2s; }
+#ball4 { left: 65vw; animation-delay: 3s; }
+#ball5 { left: 85vw; animation-delay: 4s; }
