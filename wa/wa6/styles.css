@@ -85,7 +85,7 @@ article img {
 }
  
 /*CHECK TO SEE IF THIS WORKS*/
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   main {
     flex-direction: column;
   }
