@@ -57,20 +57,20 @@ nav ul li
 
 nav ul li a 
 {
-    color: #ffdd57;
+    color: #00fff7;
     text-decoration: none;
     font-size: 18px;
     padding: 10px 20px;
-    border: 2px solid #ffdd57;
+    border: 2px solid #00ffd9;
     border-radius: 10px;
     transition: all 0.3s ease-in-out;
 }
 
 nav ul li a:hover 
 {
-    background: #ffdd57;
+    background: #00ffb3;
     color: #000;
-    box-shadow: 0 0 15px #ffdd57;
+    box-shadow: 0 0 15px #00ffee;
 }
 
 hr
