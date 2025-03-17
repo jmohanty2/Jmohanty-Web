@@ -2,7 +2,7 @@
 
 body 
 {
-    background: radial-gradient(circle, #1a1a50, #000000);
+    background: radial-gradient(circle, #1a1a50, #360034, #000);
     background-size: 300% 300%;
     animation: backgroundMove 15s infinite alternate ease-in-out;
     color: #d1e8ff;
@@ -10,35 +10,28 @@ body
     text-align: center;
     margin: 0;
     padding: 0;
-    position: relative;
 }
 
 @keyframes backgroundMove 
 {
-    0% {background-position: 0% 0%;}
-    100% {background-position: 100% 100%;}
+    0% { background-position: 0% 0%; }
+    50% { background-position: 50% 50%; }
+    100% { background-position: 100% 100%; }
 }
 
 h1, h2 
 {
-    color: #ffffff;
+    color: #fff;
     font-family: 'Audiowide', sans-serif;
     text-transform: uppercase;
-    text-shadow: 0 0 20px #ffffff;
+    text-shadow: 0 0 20px #fff;
     animation: glow 2s infinite alternate;
 }
 
-@keyframes glow 
+@keyframes glow
 {
-    from 
-    {
-        text-shadow: 0 0 10px #ffffff;
-    }
-
-    to 
-    {
-        text-shadow: 0 0 10px #1500ff;
-    }
+    from {text-shadow: 0 0 10px #fff;}
+    to {text-shadow: 0 0 60px #1500ff;}
 }
 
 nav ul 
@@ -48,43 +41,47 @@ nav ul
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
-nav ul li 
+nav li 
 {
-    margin: 10px;
+    margin: 0;
 }
 
-nav ul li a 
+nav a 
 {
+    display: block;
     color: #00fff7;
     text-decoration: none;
     font-size: 18px;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border: 2px solid #00ffd9;
     border-radius: 10px;
-    transition: all 0.3s ease-in-out;
+    transition: 0.3s;
+    min-width: 120px;
+    text-align: center;
 }
 
-nav ul li a:hover 
+nav a:hover 
 {
     background: #00ffb3;
     color: #000;
     box-shadow: 0 0 15px #00ffee;
 }
 
-hr
+hr 
 {
     border: 1px solid #ffffff33;
     margin: 30px auto;
     width: 80%;
 }
 
-h3
+h3 
 {
     color: #ff57f7;
     text-shadow: 0 0 15px #ff57f7;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s;
 }
 
 h3:hover 
@@ -104,4 +101,49 @@ p
 strong 
 {
     color: #00ffea;
+}
+
+
+@media (max-width: 400px) 
+{
+    body 
+    {
+        font-size: 16px;
+    }
+
+    nav ul 
+    {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    nav li 
+    {
+        width: 80%;
+    }
+
+    nav a 
+    {
+        width: 100%;
+    }
+
+    p 
+    {
+        max-width: 90%;
+        padding: 0 10px;
+    }
+}
+
+@media (min-width: 1500px) 
+{
+    body 
+    {
+        font-size: 20px;
+    }
+
+    p 
+    {
+        max-width: 1000px;
+    }
 }
