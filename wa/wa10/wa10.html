@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Adventure Story</title>
+    <link rel="stylesheet" href="wa10.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="lasers">
+        <div class="laser" style="left: 5%; animation-duration: 2s;"></div>
+        <div class="laser" style="left: 20%; animation-duration: 2.5s;"></div>
+        <div class="laser" style="left: 40%; animation-duration: 3s;"></div>
+        <div class="laser" style="left: 60%; animation-duration: 2.2s;"></div>
+        <div class="laser" style="left: 80%; animation-duration: 2.8s;"></div>
+        <div class="laser" style="left: 95%; animation-duration: 3.2s;"></div>
+    </div>
+
+    <h1>Galactic Story Generator</h1>
+
+    <label for="customname">Enter Name:</label>
+    <input id="customname" type="text" placeholder="Enter a name">
+
+    <div>
+        <label for="us">US</label>
+        <input type="radio" id="us" name="region" checked>
+        <label for="uk">UK</label>
+        <input type="radio" id="uk" name="region">
+    </div>
+
+    <button class="randomize">Generate Story</button>
+
+    <p class="story" style="visibility: hidden;"></p>
+
+    <script src="main.js"></script>
+
+</body>
+</html>
