@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8"/>
+    <title>JSON: Task 1</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+
+    <section class="preview"></section>
+
+  </body>
+  <script>
+    const section = document.querySelector('section');
+
+    let para1 = document.createElement('p');
+    let para2 = document.createElement('p');
+    let motherInfo = 'The mother cats are called ';
+    let kittenInfo;
+    const requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/tasks/json/sample.json';
+
+    fetch(requestURL)
+      .then(response => response.text())
+      .then(text => displayCatInfo(text));
+
+    function displayCatInfo(catString) {
+      let total = 0;
+      let male = 0;
+
+      // Turn the text into a JavaScript object
+      let cats = JSON.parse(catString);
+
+      // Add your code here
+
+      // Get mother cat names
+      let names = [];
+      for (let i = 0; i < cats.length; i++) 
+      {
+        names.push(cats[i].name);
+      }
+
+      // Add names to motherInfo sentence
+      if (names.length === 1) 
+      {
+        motherInfo += names[0] + '.';
+      } 
+      
+      else 
+      {
+        let lastName = names.pop();
+        motherInfo += names.join(', ') + ' and ' + lastName + '.';
+      }
+
+      // Count kittens and how many are male
+      for (let i = 0; i < cats.length; i++) 
+      {
+
+        let kittens = cats[i].kittens;
+
+        for (let j = 0; j < kittens.length; j++) 
+        {
+
+          total++;
+
+          if (kittens[j].gender === 'm') 
+          {
+
+            male++;
+
+          }
+
+        }
+
+      }
+
+      // Female kittens = total - male
+      let female = total - male;
+
+      // Make kittenInfo sentence
+      kittenInfo = `There are ${total} kittens: ${male} male and ${female} female.`;
+
+      // Don't edit the code below here!
+      para1.textContent = motherInfo;
+      para2.textContent = kittenInfo;
+    }
+
+    section.appendChild(para1);
+    section.appendChild(para2);
+  </script>
+</html>
