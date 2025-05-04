@@ -41,7 +41,7 @@ function createFloatingDot()
 }
 
 for (let i = 0; i < 15; i++) 
-    {
+{
     setTimeout(createFloatingDot, Math.random() * 2000);
 }
 
@@ -49,21 +49,40 @@ function createDigitInputs()
 {
     digitEntryArea.innerHTML = '';
     for (let i = 0; i < numberOfDigits; i++) 
-        {
+    {
         const digitContainer = document.createElement('div');
         digitContainer.classList.add('digit-selector');
-        
+
         const label = document.createElement('label');
         label.classList.add('digit-label');
         label.textContent = `Digit ${i + 1}:`;
 
         const input = document.createElement('input');
-        input.type = 'number';
+        input.type = 'text';
         input.classList.add('digit-input');
-        input.min = '0';
-        input.max = '9';
-        input.maxLength = '1';
-        input.addEventListener('focus', () =>
+        input.maxLength = 1;
+        input.autocomplete = 'off';
+        input.inputMode = 'numeric';
+        input.tabIndex = 0;
+        input.style.pointerEvents = 'none';
+
+        input.addEventListener('keypress', (event) => 
+        {
+            if (!/^[0-9]$/.test(event.key))
+            {
+                event.preventDefault();
+            }
+        });
+
+        input.addEventListener('input', (event) => 
+        {
+            event.target.value = event.target.value.replace(/[^0-9]/g, '').slice(0, 1);
+            const index = Array.from(digitEntryArea.children).indexOf(digitContainer);
+            enteredDigits[index] = event.target.value;
+            updateSubmitButtonVisibility();
+        });
+
+        input.addEventListener('focus', () => 
         {
             input.style.transform = `translate(${Math.random() * 5 - 2.5}px, ${Math.random() * 5 - 2.5}px) rotate(${Math.random() * 10 - 5}deg)`;
             setTimeout(() => 
@@ -72,26 +91,14 @@ function createDigitInputs()
             }, 200);
         });
 
-        input.addEventListener('input', (event) => 
-        {
-            const index = Array.from(digitEntryArea.children).indexOf(digitContainer);
-
-            if (event.target.value.length > 1) 
-            {
-                event.target.value = event.target.value.slice(0, 1);
-            }
-
-            enteredDigits[index] = event.target.value;
-            updateSubmitButtonVisibility();
-        });
-
         digitContainer.appendChild(label);
         digitContainer.appendChild(input);
         digitEntryArea.appendChild(digitContainer);
     }
 }
 
-function updateSubmitButtonVisibility() {
+function updateSubmitButtonVisibility() 
+{
     if (enteredDigits.every(digit => /^[0-9]$/.test(digit))) 
     {
         completionMessage.classList.remove('hidden');
@@ -112,7 +119,7 @@ function startRandomFocus()
     randomFocusInterval = setInterval(() => 
     {
         const inputs = digitEntryArea.querySelectorAll('.digit-input');
-        if (inputs.length > 0) 
+        if (inputs.length > 0)     
         {
             const randomIndex = Math.floor(Math.random() * inputs.length);
             inputs[randomIndex].focus();
